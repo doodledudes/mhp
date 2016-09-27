@@ -1,0 +1,22 @@
+{
+  "name": "mHealth Pharma",
+  "description": "Project Dependencies",
+  "main": "gulpfile.js",
+  "authors": [
+    "Rodan Luzuriaga"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^1.9.1",
+    "getmdl-select": "*",
+    "air-datepicker": "^2.2.0"
+  }
+}

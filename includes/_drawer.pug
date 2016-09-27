@@ -1,0 +1,37 @@
+header.mdl-layout__header.mdl-layout--small-screen-only
+  .mdl-layout__header-row
+    .mdl-layout-spacer
+    span.mdl-layout-title
+      img(src="assets/images/logo.png")
+    //- span
+    .mdl-layout-spacer
+  //- mdl-layout__header-row
+//- header
+.mdl-layout__drawer
+  span.mdl-layout-title.mdl-layout--large-screen-only
+    img(src="assets/images/logo.png")
+  //- span
+  .login-info
+    span Hello
+      strong.name Ritchelda Venzon!
+      span.user-more-options
+        button#user-more-options.mdl-button.mdl-js-button.mdl-button--icon
+          i.material-icons arrow_drop_down
+        //- button
+        ul.mdl-menu.mdl-menu--bottom-right.mdl-js-menu.mdl-js-ripple-effect(for='user-more-options')
+          li.mdl-menu__item Account Settings
+          li.mdl-menu__item
+            a(href='login.html') Logout
+        //- ul
+      //- user-more-options
+    //- p
+  //- login-info
+  nav.mdl-navigation
+    a.mdl-navigation__link.active(href='') Patients
+  //- nav
+  .mdl-layout-spacer
+  footer
+    small mHealthPharma Inc.
+      br
+      | © 2016. All rights reserved.
+//- mdl-layout__drawer
