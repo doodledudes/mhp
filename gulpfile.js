@@ -76,7 +76,8 @@ var bower = [
     bowerBaseDir + '/jquery/dist/**/*.*',
     bowerBaseDir + '/getmdl-select/**/*.min.js',
     bowerBaseDir + '/getmdl-select/**/*.min.css',
-    bowerBaseDir + '/air-datepicker/**/*.*'
+    bowerBaseDir + '/air-datepicker/**/*.*',
+    bowerBaseDir + '/chart.js/dist/**/*.*'
 ];
 gulp.task('bower', function() {
     gulp.src(bower, { base: './'})

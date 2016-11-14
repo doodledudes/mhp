@@ -1,0 +1,58 @@
+extends ./layout/layout.pug
+
+block content
+
+  section.ribbon
+  section.content
+    h1 mHealthPharma Admin
+      br
+      small mHealthPharma Admin is application for maintaining Doctors, Patients, Drugs, etc.
+    //- h1
+    .mdl-card.mdl-shadow--2dp
+      .frame
+        img.mhp-img.mhp--fill-img.mhp--grayscale-img(src='assets/images/welcome.jpg')
+        .mdl-grid
+          .mdl-cell.mdl-cell--6-col
+            p
+              big Getting started
+            p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+            a.mdl-button.mdl-js-button.mdl-button--accent(href='') Learn more
+          //- mdl-cell.mdl-cell--4-col
+          .mdl-cell.mdl-cell--6-col
+            p
+              big Details
+            p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+            a.mdl-button.mdl-js-button.mdl-button--accent(href='') Learn more
+          //- mdl-cell.mdl-cell--4-col
+        //- mdl-grid
+      //- .frame
+    //- mdl-card
+  //- section
+
+block scripts
+  script.
+    $(document).ready(function() {
+      //- datepicker
+      $( "#start-date, #end-date" ).datepicker();
+
+      $('table.view-all').show();
+      $('body').on('click', '#select-patient-parent .mdl-menu__container ul li', function() {
+        var val = $(this).attr('data-val');
+        console.log(val);
+        if(val >= 1) {
+          $('table.view-patient').show();
+          $('table.view-all').hide();
+        } else {
+          $('table.view-patient').hide();
+          $('table.view-all').show();
+        }
+      }).on('click', 'table.view-all tbody tr', function() {
+        //- var selected = $(this).find('td:first-child').text();
+        $('#select-patient').val('');
+        $('table.view').toggle();
+      }).on('blur', '[data-toggle="datepicker"]', function() {
+        if (this.value != '') {
+          $(this).parent().addClass('is-dirty');
+        }
+      });
+    });

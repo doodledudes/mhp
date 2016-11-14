@@ -1,0 +1,247 @@
+extends ./layout/layout.pug
+
+block content
+
+  section.ribbon
+  section.content
+    h1 Patient
+      br
+      small Dashboard
+    //- h1
+    .mdl-card.mdl-shadow--2dp
+      .frame
+        .mdl-grid
+          .mdl-cell.mdl-cell--4-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone.mhp-profile-column
+            .mdl-grid
+              .mdl-cell.mdl-cell--12-col.mdl-cell--4-col-tablet.mdl-cell--6-col-phone
+                .mhp-card--img.mdl-card(style='background: url("//cms.interaksyon.com/entertainment/assets/media/2013/02/Joey-Pepe-Smith-screemshot.jpg") center / cover;')
+                  .mdl-card__title.mdl-card--expand
+                  .mdl-card__actions
+                    span.mhp-card--img__filename Juan Dela Cruz
+                  //- mdl-card__actions
+                  .mdl-card__menu
+                    button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect
+                      i.material-icons camera_alt
+                    //- button
+                  //- mdl-card__menu
+                //- mhp-card--img
+                br
+                p
+                  span.mdl-badge(data-badge='7') New Messages
+                //- p
+                p
+                  span.mdl-badge(data-badge='8') Unconfirmed Messages
+                //- p
+                hr.mdl-cell--hide-tablet
+              //- mdl-cell
+              .mdl-cell.mdl-cell--12-col.mdl-cell--4-col-tablet.mdl-cell--6-col-phone
+                nav
+                  p
+                    a(href='profile.html') Dashboard
+                  //- p
+                  p
+                    a(href='details.html') Profile
+                  //- p
+                  p
+                    a(href='') Reccomendations
+                  //- p
+                  p
+                    a(href='') BP Measurements
+                  //- p
+                  p
+                    a(href='') Patient Review Log
+                  //- p
+                //- nav
+              //- mdl-cell
+            //- mdl-grid
+          //- mdl-cell.mdl-cell--6-col
+          .mdl-cell.mdl-cell--8-col
+            .mdl-grid
+              .mdl-cell.mdl-cell--6-col.mdl-cell--4-col-tablet
+                .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                  input#profileFirstName.mdl-textfield__input(type='text')
+                  label.mdl-textfield__label(for='profileFirstName') First name
+                //- mdl-textfield
+                .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                  input#profileLastName.mdl-textfield__input(type='text')
+                  label.mdl-textfield__label(for='profileLastName') Last name
+                //- mdl-textfield
+                .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                  input#profileMiddleName.mdl-textfield__input(type='text')
+                  label.mdl-textfield__label(for='profileMiddleName') Middle name
+                //- mdl-textfield
+                .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                  input#profileBirthDay.mdl-textfield__input(type='text', data-toggle='datepicker', data-language='en', data-timepicker="true")
+                  label.mdl-textfield__label(for='profileBirthDay') Birthday
+                //- mdl-textfield
+                .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.getmdl-select.getmdl-select__fix-height#profileGenderParent
+                  input#profileGender.mdl-textfield__input(type='text', value='', readonly='', tabindex='-1' data-val="0")
+                  label(for='profileGender')
+                    i.mdl-icon-toggle__label.material-icons keyboard_arrow_down
+                  label.mdl-textfield__label(for='profileGender') Gender
+                  ul.mdl-menu.mdl-menu--bottom-left.mdl-js-menu(for='profileGender')
+                    li.mdl-menu__item(data-val='0')
+                    li.mdl-menu__item(data-val='1') Male
+                    li.mdl-menu__item(data-val='2') Female
+                  //- ul
+                //- mdl-textfield
+                .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.getmdl-select.getmdl-select__fix-height#profileRaceParent
+                  input#profileRace.mdl-textfield__input(type='text', value='', readonly='', tabindex='-1' data-val="0")
+                  label(for='profileRace')
+                    i.mdl-icon-toggle__label.material-icons keyboard_arrow_down
+                  label.mdl-textfield__label(for='profileRace') Race
+                  ul.mdl-menu.mdl-menu--bottom-left.mdl-js-menu(for='profileRace')
+                    li.mdl-menu__item(data-val='0')
+                    li.mdl-menu__item(data-val='1') White
+                    li.mdl-menu__item(data-val='2') Asian
+                  //- ul
+                //- mdl-textfield
+              //- mdl-cell
+              .mdl-cell.mdl-cell--6-col.mdl-cell--4-col-tablet
+                .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                  input#profileAddress1.mdl-textfield__input(type='text')
+                  label.mdl-textfield__label(for='profileAddress1') Address 1
+                //- mdl-textfield
+                .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                  input#profileAddress2.mdl-textfield__input(type='text')
+                  label.mdl-textfield__label(for='profileAddress2') Address 2
+                //- mdl-textfield
+                .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                  input#profileCity.mdl-textfield__input(type='text')
+                  label.mdl-textfield__label(for='profileCity') City
+                //- mdl-textfield
+                .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                  input#profileState.mdl-textfield__input(type='text')
+                  label.mdl-textfield__label(for='profileState') State
+                //- mdl-textfield
+                .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                  input#profilePostalCode.mdl-textfield__input(type='text')
+                  label.mdl-textfield__label(for='profilePostalCode') Postal Code
+                //- mdl-textfield
+                .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.getmdl-select.getmdl-select__fix-height#profileCountryParent
+                  input#profileCountry.mdl-textfield__input(type='text', value='', readonly='', tabindex='-1' data-val="0")
+                  label(for='profileCountry')
+                    i.mdl-icon-toggle__label.material-icons keyboard_arrow_down
+                  label.mdl-textfield__label(for='profileCountry') Language
+                  ul.mdl-menu.mdl-menu--bottom-left.mdl-js-menu(for='profileCountry')
+                    li.mdl-menu__item(data-val='0')
+                    li.mdl-menu__item(data-val='1') Us
+                    li.mdl-menu__item(data-val='2') Philippines
+                  //- ul
+                //- mdl-textfield
+              //- mdl-cell
+              .mdl-cell.mdl-cell--6-col.mdl-cell--4-col-tablet
+                .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.getmdl-select.getmdl-select__fix-height#profileLanguageParent
+                  input#profileLanguage.mdl-textfield__input(type='text', value='', readonly='', tabindex='-1' data-val="0")
+                  label(for='profileGender')
+                    i.mdl-icon-toggle__label.material-icons keyboard_arrow_down
+                  label.mdl-textfield__label(for='profileLanguage') Language
+                  ul.mdl-menu.mdl-menu--bottom-left.mdl-js-menu(for='profileLanguage')
+                    li.mdl-menu__item(data-val='0')
+                    li.mdl-menu__item(data-val='1') Male
+                    li.mdl-menu__item(data-val='2') Female
+                  //- ul
+                //- mdl-textfield
+                .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                  input#profileEmail.mdl-textfield__input(type='text')
+                  label.mdl-textfield__label(for='profileEmail') Email
+                //- mdl-textfield
+              //- mdl-cell
+              .mdl-cell.mdl-cell--6-col.mdl-cell--4-col-tablet
+                .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                  input#profilePhone.mdl-textfield__input(type='text')
+                  label.mdl-textfield__label(for='profilePhone') Phone
+                //- mdl-textfield
+                .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                  input#profilePhoneAlt.mdl-textfield__input(type='text')
+                  label.mdl-textfield__label(for='profilePhoneAlt') Alternative Phone
+                //- mdl-textfield
+              //- mdl-cell
+              .mdl-cell.mdl-cell--6-col.mdl-cell--4-col-tablet
+                .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                  textarea#profileShortBio.mdl-textfield__input(rows='5')
+                  label.mdl-textfield__label(for='profileShortBio') Short bio
+                //- mdl-textfield
+              //- mdl-cell
+              .mdl-cell.mdl-cell--6-col.mdl-cell--4-col-tablet
+                .change-password
+                  a(href='', data-toggle='toggle', data-target='#formCp') [ Change Password ]
+                  #formCp.clps
+                    .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                      input#profileCurrentPassowrd.mdl-textfield__input(type='password')
+                      label.mdl-textfield__label(for='profileCurrentPassowrd') Current password
+                    //- mdl-textfield
+                    .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                      input#profileNewPassowrd.mdl-textfield__input(type='password')
+                      label.mdl-textfield__label(for='profileNewPassowrd') New password
+                    //- mdl-textfield
+                    .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                      input#profileConfirmPassowrd.mdl-textfield__input(type='password')
+                      label.mdl-textfield__label(for='profileConfirmPassowrd') Confirm new password
+                    //- mdl-textfield
+                    button.mdl-button.mdl-js-button.mdl-js-ripple-effect(data-toggle='toggle', data-target='#formCp')
+                      | Cancel
+                    //- button
+                    button#lnkChangePassword.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect
+                      | Change Password
+                    //- button
+                    #snackbarChangePassword.mdl-js-snackbar.mdl-snackbar
+                      .mdl-snackbar__text
+                      button.mdl-snackbar__action(type='button')
+                    //- mdl-snackbar
+                  //- form
+                //- change-password
+              //- mdl-cell
+            //- mdl-grid
+
+            .buttons
+              button.mdl-button.mdl-js-button.mdl-js-ripple-effect
+                | Cancel
+              //- button
+              button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent
+                | Save
+              //- button
+            //- mhp-pull-right
+          //- mdl-cell.mdl-cell--6-col
+        //- mdl-grid
+      //- .frame
+    //- mdl-card
+  //- section
+
+block scripts
+  script.
+    $(document).ready(function() {
+
+      $("[data-toggle='datepicker']").datepicker();
+      $('body').on('blur', '[data-toggle="datepicker"]', function() {
+        if (this.value != '') {
+          $(this).parent().addClass('is-dirty');
+        }
+      });
+
+      $("[data-toggle='toggle']").on('click', function(e) {
+        e.preventDefault();
+        var toggleId = this.getAttribute('data-target');
+        $(toggleId).fadeToggle('fast');
+      });
+
+      (function() {
+        'use strict';
+        var snackbarContainer = document.querySelector('#snackbarChangePassword');
+        var showSnackbarButton = document.querySelector('#lnkChangePassword');
+        var handler = function(event) {
+          showSnackbarButton.style.backgroundColor = '';
+        };
+        showSnackbarButton.addEventListener('click', function() {
+          'use strict';
+          var data = {
+            message: 'Password has been updated!',
+            timeout: 5000,
+            actionHandler: handler,
+            actionText: "'_'"
+          };
+          snackbarContainer.MaterialSnackbar.showSnackbar(data);
+        });
+      }());
+
+    });

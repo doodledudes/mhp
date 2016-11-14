@@ -1,0 +1,609 @@
+extends ./layout/layout.pug
+
+block content
+
+  section.ribbon
+  section.content
+    a.btn-export.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent.mhp-pull-right(href='javascript:window.print();')
+      | Export to PDF
+    //- button
+    h1 Time logs
+      br
+      small Patient Review
+    //- h1
+    .mdl-card.mdl-shadow--2dp
+      .frame
+        .table-controls
+          .mdl-grid
+            .mdl-cell.mdl-cell--12-col-tablet.mdl-cell--6-col-desktop
+              #select-patient-parent.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.getmdl-select.getmdl-select__fix-height
+                input#select-patient.mdl-textfield__input(type='text', value='', readonly='', tabindex='-1' data-val="0")
+                label(for='select-patient')
+                  i.mdl-icon-toggle__label.material-icons keyboard_arrow_down
+                label.mdl-textfield__label(for='select-patient') Patients
+                ul.mdl-menu.mdl-menu--bottom-left.mdl-js-menu(for='select-patient')
+                  li.mdl-menu__item(data-val='0') All
+                  li.mdl-menu__item(data-val='1') Herrera, Weyden
+                  li.mdl-menu__item(data-val='2') Howard, Gary A
+                  li.mdl-menu__item(data-val='3') Rapoport, Dmitry
+                //- ul
+              //- mdl-textfield
+            //- mdl-cell
+            .mdl-cell.mdl-cell--4-col-tablet.mdl-cell--3-col-desktop
+              .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                input#start-date.mdl-textfield__input(type='text', data-toggle='datepicker', data-language='en', data-timepicker="true")
+                label.mdl-textfield__label(for='start-date') Start date
+              //- mdl-textfield
+            //- mdl-cell
+            .mdl-cell.mdl-cell--4-col-tablet.mdl-cell--3-col-desktop
+              .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                input#end-date.mdl-textfield__input(type='text', data-toggle='datepicker', data-language='en', data-timepicker="true")
+                label.mdl-textfield__label(for='end-date') End date
+              //- mdl-textfield
+            //- mdl-cell
+          //- mdl-grid
+        //- table-contols
+        .mdl-tabs.mdl-js-tabs.mdl-js-ripple-effect
+          .mdl-tabs__tab-bar
+            a.mdl-button.mdl-js-button.mdl-button--icon.nav(href='')
+              i.material-icons keyboard_arrow_left
+            //- button
+            .mdl-layout-spacer
+            a.mdl-tabs__tab.is-active(href='#tab-day') Day
+            a.mdl-tabs__tab(href='#tab-week') Week
+            a.mdl-tabs__tab(href='#tab-month') Month
+            a.mdl-tabs__tab(href='#tab-year') Year
+            .mdl-layout-spacer
+            a.mdl-button.mdl-js-button.mdl-button--icon.nav(href='')
+              i.material-icons keyboard_arrow_right
+            //- button
+          //- mdl-tabs__tab-bar
+          #tab-day.mdl-tabs__panel.is-active
+            table.mdl-data-table.view.view-all
+              thead
+                tr
+                  th.mdl-data-table__cell--non-numeric Name
+                  th.mdl-data-table__cell--non-numeric Duration
+                //- tr
+              //- thead
+              tfoot
+                tr
+                  th
+                    strong Total Duration :
+                  th.mdl-data-table__cell--non-numeric
+                    strong.total 41760
+                    small &nbsp;mins
+                //- tr
+              //- tfoot
+              tbody
+                tr
+                  td.mdl-data-table__cell--non-numeric Herrera, Weyden
+                  td.mdl-data-table__cell--non-numeric 15840
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric Howard, Gary A
+                  td.mdl-data-table__cell--non-numeric 7200
+                    small &nbsp;mins
+                //- tr
+              //- tbody
+            //- table
+            table.mdl-data-table.view.view-patient
+              thead
+                tr
+                  th.mdl-data-table__cell--non-numeric(width="20%") From
+                  th.mdl-data-table__cell--non-numeric To
+                  th.mdl-data-table__cell--non-numeric Duration
+                //- tr
+              //- thead
+              tfoot
+                tr
+                  th(colspan="2")
+                    strong Total Duration :
+                  th.mdl-data-table__cell--non-numeric
+                    strong.total 15840
+                    small &nbsp;mins
+                //- tr
+              //- tfoot
+              //- dd/mm/yyy - date format
+              tbody
+                tr
+                  td.mdl-data-table__cell--non-numeric
+                    | 11/9/2001
+                    br
+                    small @12:30pm
+                  //- td
+                  td.mdl-data-table__cell--non-numeric
+                    | 13/9/2001
+                    br
+                    small @12:30pm
+                  //- td
+                  td.mdl-data-table__cell--non-numeric 2880
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric
+                    | 3/2/2003
+                    br
+                    small @4:10pm
+                  //- td
+                  td.mdl-data-table__cell--non-numeric
+                    | 8/2/2003
+                    br
+                    small @4:10pm
+                  //- td
+                  td.mdl-data-table__cell--non-numeric 7200
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric
+                    | 12/5/2003
+                    br
+                    small @9:20am
+                  //- td
+                  td.mdl-data-table__cell--non-numeric
+                    | 13/5/2003
+                    br
+                    small @9:20am
+                  //- td
+                  td.mdl-data-table__cell--non-numeric 1440
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric
+                    | 5/9/2016
+                    br
+                    small @7:10am
+                  //- td
+                  td.mdl-data-table__cell--non-numeric
+                    | 8/9/2016
+                    br
+                    small @7:10am
+                  //- td
+                  td.mdl-data-table__cell--non-numeric 4320
+                    small &nbsp;mins
+                //- tr
+              //- tbody
+            //- table
+          //- tab
+          #tab-week.mdl-tabs__panel
+            table.mdl-data-table.view.view-all
+              thead
+                tr
+                  th.mdl-data-table__cell--non-numeric Name
+                  th.mdl-data-table__cell--non-numeric Duration
+                //- tr
+              //- thead
+              tfoot
+                tr
+                  th
+                    strong Total Duration :
+                  th.mdl-data-table__cell--non-numeric
+                    strong.total 41760
+                    small &nbsp;mins
+                //- tr
+              //- tfoot
+              tbody
+                tr
+                  td.mdl-data-table__cell--non-numeric Herrera, Weyden
+                  td.mdl-data-table__cell--non-numeric 15840
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric Howard, Gary A
+                  td.mdl-data-table__cell--non-numeric 7200
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric Rapoport, Dmitry
+                  td.mdl-data-table__cell--non-numeric 1440
+                    small &nbsp;mins
+                //- tr
+              //- tbody
+            //- table
+            table.mdl-data-table.view.view-patient
+              thead
+                tr
+                  th.mdl-data-table__cell--non-numeric(width="20%") From
+                  th.mdl-data-table__cell--non-numeric To
+                  th.mdl-data-table__cell--non-numeric Duration
+                //- tr
+              //- thead
+              tfoot
+                tr
+                  th(colspan="2")
+                    strong Total Duration :
+                  th.mdl-data-table__cell--non-numeric
+                    strong.total 15840
+                    small &nbsp;mins
+                //- tr
+              //- tfoot
+              //- dd/mm/yyy - date format
+              tbody
+                tr
+                  td.mdl-data-table__cell--non-numeric
+                    | 11/9/2001
+                    br
+                    small @12:30pm
+                  //- td
+                  td.mdl-data-table__cell--non-numeric
+                    | 13/9/2001
+                    br
+                    small @12:30pm
+                  //- td
+                  td.mdl-data-table__cell--non-numeric 2880
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric
+                    | 3/2/2003
+                    br
+                    small @4:10pm
+                  //- td
+                  td.mdl-data-table__cell--non-numeric
+                    | 8/2/2003
+                    br
+                    small @4:10pm
+                  //- td
+                  td.mdl-data-table__cell--non-numeric 7200
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric
+                    | 12/5/2003
+                    br
+                    small @9:20am
+                  //- td
+                  td.mdl-data-table__cell--non-numeric
+                    | 13/5/2003
+                    br
+                    small @9:20am
+                  //- td
+                  td.mdl-data-table__cell--non-numeric 1440
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric
+                    | 5/9/2016
+                    br
+                    small @7:10am
+                  //- td
+                  td.mdl-data-table__cell--non-numeric
+                    | 8/9/2016
+                    br
+                    small @7:10am
+                  //- td
+                  td.mdl-data-table__cell--non-numeric 4320
+                    small &nbsp;mins
+                //- tr
+              //- tbody
+            //- table
+          //- tab
+          #tab-month.mdl-tabs__panel
+            table.mdl-data-table.view.view-all
+              thead
+                tr
+                  th.mdl-data-table__cell--non-numeric Name
+                  th.mdl-data-table__cell--non-numeric Duration
+                //- tr
+              //- thead
+              tfoot
+                tr
+                  th
+                    strong Total Duration :
+                  th.mdl-data-table__cell--non-numeric
+                    strong.total 41760
+                    small &nbsp;mins
+                //- tr
+              //- tfoot
+              tbody
+                tr
+                  td.mdl-data-table__cell--non-numeric Herrera, Weyden
+                  td.mdl-data-table__cell--non-numeric 15840
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric Howard, Gary A
+                  td.mdl-data-table__cell--non-numeric 7200
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric Rapoport, Dmitry
+                  td.mdl-data-table__cell--non-numeric 1440
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric David, Amy
+                  td.mdl-data-table__cell--non-numeric 1440
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric Faktorovich, Boris
+                  td.mdl-data-table__cell--non-numeric 2880
+                    small &nbsp;mins
+                //- tr
+              //- tbody
+            //- table
+            table.mdl-data-table.view.view-patient
+              thead
+                tr
+                  th.mdl-data-table__cell--non-numeric(width="20%") From
+                  th.mdl-data-table__cell--non-numeric To
+                  th.mdl-data-table__cell--non-numeric Duration
+                //- tr
+              //- thead
+              tfoot
+                tr
+                  th(colspan="2")
+                    strong Total Duration :
+                  th.mdl-data-table__cell--non-numeric
+                    strong.total 15840
+                    small &nbsp;mins
+                //- tr
+              //- tfoot
+              //- dd/mm/yyy - date format
+              tbody
+                tr
+                  td.mdl-data-table__cell--non-numeric
+                    | 11/9/2001
+                    br
+                    small @12:30pm
+                  //- td
+                  td.mdl-data-table__cell--non-numeric
+                    | 13/9/2001
+                    br
+                    small @12:30pm
+                  //- td
+                  td.mdl-data-table__cell--non-numeric 2880
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric
+                    | 3/2/2003
+                    br
+                    small @4:10pm
+                  //- td
+                  td.mdl-data-table__cell--non-numeric
+                    | 8/2/2003
+                    br
+                    small @4:10pm
+                  //- td
+                  td.mdl-data-table__cell--non-numeric 7200
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric
+                    | 12/5/2003
+                    br
+                    small @9:20am
+                  //- td
+                  td.mdl-data-table__cell--non-numeric
+                    | 13/5/2003
+                    br
+                    small @9:20am
+                  //- td
+                  td.mdl-data-table__cell--non-numeric 1440
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric
+                    | 5/9/2016
+                    br
+                    small @7:10am
+                  //- td
+                  td.mdl-data-table__cell--non-numeric
+                    | 8/9/2016
+                    br
+                    small @7:10am
+                  //- td
+                  td.mdl-data-table__cell--non-numeric 4320
+                    small &nbsp;mins
+                //- tr
+              //- tbody
+            //- table
+          //- tab
+          #tab-year.mdl-tabs__panel
+            table.mdl-data-table.view.view-all
+              thead
+                tr
+                  th.mdl-data-table__cell--non-numeric Name
+                  th.mdl-data-table__cell--non-numeric Duration
+                //- tr
+              //- thead
+              tfoot
+                tr
+                  th
+                    strong Total Duration :
+                  th.mdl-data-table__cell--non-numeric
+                    strong.total 41760
+                    small &nbsp;mins
+                //- tr
+              //- tfoot
+              tbody
+                tr
+                  td.mdl-data-table__cell--non-numeric Herrera, Weyden
+                  td.mdl-data-table__cell--non-numeric 15840
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric Howard, Gary A
+                  td.mdl-data-table__cell--non-numeric 7200
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric Rapoport, Dmitry
+                  td.mdl-data-table__cell--non-numeric 1440
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric David, Amy
+                  td.mdl-data-table__cell--non-numeric 1440
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric Faktorovich, Boris
+                  td.mdl-data-table__cell--non-numeric 2880
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric Gilbukh, Edik S
+                  td.mdl-data-table__cell--non-numeric 5760
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric Howard, Gary A
+                  td.mdl-data-table__cell--non-numeric 1440
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric Karaev, Isaak
+                  td.mdl-data-table__cell--non-numeric 1440
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric Lamphere, Judson
+                  td.mdl-data-table__cell--non-numeric 8640
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric Merson, Alexander
+                  td.mdl-data-table__cell--non-numeric 4320
+                    small &nbsp;mins
+                //- tr
+              //- tbody
+            //- table
+            table.mdl-data-table.view.view-patient
+              thead
+                tr
+                  th.mdl-data-table__cell--non-numeric(width="20%") From
+                  th.mdl-data-table__cell--non-numeric To
+                  th.mdl-data-table__cell--non-numeric Duration
+                //- tr
+              //- thead
+              tfoot
+                tr
+                  th(colspan="2")
+                    strong Total Duration :
+                  th.mdl-data-table__cell--non-numeric
+                    strong.total 15840
+                    small &nbsp;mins
+                //- tr
+              //- tfoot
+              //- dd/mm/yyy - date format
+              tbody
+                tr
+                  td.mdl-data-table__cell--non-numeric
+                    | 11/9/2001
+                    br
+                    small @12:30pm
+                  //- td
+                  td.mdl-data-table__cell--non-numeric
+                    | 13/9/2001
+                    br
+                    small @12:30pm
+                  //- td
+                  td.mdl-data-table__cell--non-numeric 2880
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric
+                    | 3/2/2003
+                    br
+                    small @4:10pm
+                  //- td
+                  td.mdl-data-table__cell--non-numeric
+                    | 8/2/2003
+                    br
+                    small @4:10pm
+                  //- td
+                  td.mdl-data-table__cell--non-numeric 7200
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric
+                    | 12/5/2003
+                    br
+                    small @9:20am
+                  //- td
+                  td.mdl-data-table__cell--non-numeric
+                    | 13/5/2003
+                    br
+                    small @9:20am
+                  //- td
+                  td.mdl-data-table__cell--non-numeric 1440
+                    small &nbsp;mins
+                //- tr
+                tr
+                  td.mdl-data-table__cell--non-numeric
+                    | 5/9/2016
+                    br
+                    small @7:10am
+                  //- td
+                  td.mdl-data-table__cell--non-numeric
+                    | 8/9/2016
+                    br
+                    small @7:10am
+                  //- td
+                  td.mdl-data-table__cell--non-numeric 4320
+                    small &nbsp;mins
+                //- tr
+              //- tbody
+            //- table
+          //- tab
+        //- mdl-tabs
+        .table-footer-controls
+          span.rows-per-page
+            span 10
+            button#rows-per-page.mdl-button.mdl-js-button.mdl-button--icon
+              i.material-icons arrow_drop_down
+            //- button
+            ul.mdl-menu.mdl-menu--top-right.mdl-js-menu.mdl-js-ripple-effect(for='rows-per-page')
+              li.mdl-menu__item 10
+              li.mdl-menu__item 25
+              li.mdl-menu__item 50
+              li.mdl-menu__item 100
+            //- ul
+          //- .rows-per-page
+
+          span.showing 1-10 of 10
+
+          span.paginate
+            a.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect(href='')
+              i.material-icons keyboard_arrow_left
+            //- button
+            a.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect(href='')
+              i.material-icons keyboard_arrow_right
+            //- button
+          //- paginate
+        //- .table-footer-controls
+      //- .frame
+    //- mdl-card
+  //- section
+
+block scripts
+  script.
+    $(document).ready(function() {
+      //- datepicker
+      $( "#start-date, #end-date" ).datepicker();
+
+      $('table.view-all').show();
+      $('body').on('click', '#select-patient-parent .mdl-menu__container ul li', function() {
+        var val = $(this).attr('data-val');
+        console.log(val);
+        if(val >= 1) {
+          $('table.view-patient').show();
+          $('table.view-all').hide();
+        } else {
+          $('table.view-patient').hide();
+          $('table.view-all').show();
+        }
+      }).on('click', 'table.view-all tbody tr', function() {
+        //- var selected = $(this).find('td:first-child').text();
+        $('#select-patient').val('');
+        $('table.view').toggle();
+      }).on('blur', '[data-toggle="datepicker"]', function() {
+        if (this.value != '') {
+          $(this).parent().addClass('is-dirty');
+        }
+      });
+    });

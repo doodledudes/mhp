@@ -9,25 +9,59 @@ header.mdl-layout__header.mdl-layout--small-screen-only
 //- header
 .mdl-layout__drawer
   span.mdl-layout-title.mdl-layout--large-screen-only
-    img(src="assets/images/logo.png")
+    a(href='welcome.html')
+      img(src="assets/images/logo.png")
   //- span
   .login-info
     span Hello
-      strong.name Ritchelda Venzon!
-      span.user-more-options
+      strong.name Doctor Kwak!
+      .user-more-options
         button#user-more-options.mdl-button.mdl-js-button.mdl-button--icon
           i.material-icons arrow_drop_down
         //- button
         ul.mdl-menu.mdl-menu--bottom-right.mdl-js-menu.mdl-js-ripple-effect(for='user-more-options')
-          li.mdl-menu__item Account Settings
           li.mdl-menu__item
-            a(href='login.html') Logout
+            a(href='index.html') Logout
+          //- li
         //- ul
       //- user-more-options
     //- p
   //- login-info
   nav.mdl-navigation
-    a.mdl-navigation__link.active(href='') Patients
+    .mdl-layout-title
+      .mdl-textfield.mdl-js-textfield.mhp-drawer--search-patient
+        input#patientSearch.mdl-textfield__input(type='text')
+        label.mdl-textfield__label(for='patientSearch') Search patient
+      //- mdl-textfield
+    //- mdl-layout-title
+    span.mdl-badge(data-badge='5')
+      a.mdl-navigation__link(href='')
+        strong Patients Monitored
+      //- a
+    //- span
+    span.mdl-badge(data-badge='10')
+      a.mdl-navigation__link(href='')
+        strong Patients Required Attention
+      //- a
+    //- span
+    span.mdl-badge(data-badge='6')
+      a.mdl-navigation__link(href='')
+        strong Patients Under Control
+      //- a
+    //- span
+    span.mdl-badge(data-badge='2')
+      a.mdl-navigation__link(href='')
+        strong Patients You Haven't Looked at in 20+ Days
+      //- a
+    //- span
+    hr
+    a.mdl-navigation__link(href='welcome.html') Home
+    a.mdl-navigation__link(href='') BP Measurements
+    a.mdl-navigation__link(href='') Patient Review Logs
+    hr
+    a.mdl-navigation__link(href='profile.html') Sample Profile Page
+    hr
+    a.mdl-navigation__link(href='styleguide.html') Style Guide
   //- nav
   .mdl-layout-spacer
   footer

@@ -1,0 +1,174 @@
+extends ./layout/layout.pug
+
+block content
+
+  section.ribbon
+  section.content
+    h1 Form Title
+      br
+      small Form Action (Add / Edit)
+    //- h1
+    .mdl-card.mdl-shadow--2dp
+      .frame
+        .mdl-grid
+          .mdl-cell.mdl-cell--6-col
+            h5 Lorem ipsum dolor sit amet
+            p Consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+            p Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+          //- mdl-cell.mdl-cell--6-col
+          .mdl-cell.mdl-cell--6-col
+            p
+              strong To patient :&nbsp;
+              | Juan Dela Cruz
+            //- p
+            p
+              strong From physician :&nbsp;
+              | John Cena
+            //- p
+            form(action='#')
+              .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.getmdl-select.getmdl-select__fix-height#select-patient-parent
+                input#select-patient.mdl-textfield__input(type='text', value='', readonly='', tabindex='-1' data-val="0")
+                label(for='select-patient')
+                  i.mdl-icon-toggle__label.material-icons keyboard_arrow_down
+                label.mdl-textfield__label(for='select-patient') Patients
+                ul.mdl-menu.mdl-menu--bottom-left.mdl-js-menu(for='select-patient')
+                  li.mdl-menu__item(data-val='0') All
+                  li.mdl-menu__item(data-val='1') Selection 1
+                  li.mdl-menu__item(data-val='2') Selection 2
+                //- ul
+              //- mdl-textfield
+              .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                input#formDate.mdl-textfield__input(type='text', data-toggle='datepicker', data-language='en', data-timepicker="true")
+                label.mdl-textfield__label(for='start-date') Date
+              //- mdl-textfield
+              .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                textarea#formTextarea.mdl-textfield__input(rows='3')
+                label.mdl-textfield__label(for='formTextarea') Textarea
+              //- mdl-textfield
+              br
+              button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--colored
+                | Button
+              //- button
+              button.mdl-button.mdl-js-button.mdl-button--raised.mdl-button--accent
+                | Button
+              //- button
+              button.mdl-button.mdl-js-button.mdl-button--raised.mdl-js-ripple-effect.mdl-button--accent
+                | Button
+              //- button
+              br
+              button.mdl-button.mdl-js-button
+                | Button
+              //- button
+              button.mdl-button.mdl-js-button.mdl-js-ripple-effect
+                | Button
+              //- button
+              button.mdl-button.mdl-js-button(disabled='')
+                | Button
+              //- button
+              br
+              button.mdl-button.mdl-js-button.mdl-button--primary
+                | Button
+              //- button
+              button.mdl-button.mdl-js-button.mdl-button--accent
+                | Button
+              //- button
+            //- form
+          //- mdl-cell.mdl-cell--6-col
+        //- mdl-grid
+      //- .frame
+      .frame
+        .table-controls
+          .mdl-grid
+            .mdl-cell.mdl-cell--12-col-tablet.mdl-cell--6-col-desktop
+              #select-patient-parent.mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label.getmdl-select.getmdl-select__fix-height
+                input#select-patient.mdl-textfield__input(type='text', value='', readonly='', tabindex='-1' data-val="0")
+                label(for='select-patient')
+                  i.mdl-icon-toggle__label.material-icons keyboard_arrow_down
+                label.mdl-textfield__label(for='select-patient') Patients
+                ul.mdl-menu.mdl-menu--bottom-left.mdl-js-menu(for='select-patient')
+                  li.mdl-menu__item(data-val='0') All
+                  li.mdl-menu__item(data-val='1') Herrera, Weyden
+                  li.mdl-menu__item(data-val='2') Howard, Gary A
+                  li.mdl-menu__item(data-val='3') Rapoport, Dmitry
+                //- ul
+              //- mdl-textfield
+            //- mdl-cell
+            .mdl-cell.mdl-cell--4-col-tablet.mdl-cell--3-col-desktop
+              .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                input#start-date.mdl-textfield__input(type='text', data-toggle='datepicker', data-language='en', data-timepicker="true")
+                label.mdl-textfield__label(for='start-date') Start date
+              //- mdl-textfield
+            //- mdl-cell
+            .mdl-cell.mdl-cell--4-col-tablet.mdl-cell--3-col-desktop
+              .mdl-textfield.mdl-js-textfield.mdl-textfield--floating-label
+                input#end-date.mdl-textfield__input(type='text', data-toggle='datepicker', data-language='en', data-timepicker="true")
+                label.mdl-textfield__label(for='end-date') End date
+              //- mdl-textfield
+            //- mdl-cell
+          //- mdl-grid
+        //- table-contols
+        table.mdl-data-table
+          thead
+            tr
+              th.mdl-data-table__cell--non-numeric Column 1
+              th.mdl-data-table__cell--non-numeric Column 2
+            //- tr
+          //- thead
+          tfoot
+            tr
+              th.mdl-data-table__cell--non-numeric Column 1
+              th.mdl-data-table__cell--non-numeric Column 2
+            //- tr
+          //- tfoot
+          tbody
+            tr
+              td.mdl-data-table__cell--non-numeric data 1
+              td.mdl-data-table__cell--non-numeric data 2
+            //- tr
+            tr
+              td.mdl-data-table__cell--non-numeric data 3
+              td.mdl-data-table__cell--non-numeric data 4
+            //- tr
+          //- tbody
+        //- table
+        .table-footer-controls
+          span.rows-per-page
+            span 10
+            button#rows-per-page.mdl-button.mdl-js-button.mdl-button--icon
+              i.material-icons arrow_drop_down
+            //- button
+            ul.mdl-menu.mdl-menu--top-right.mdl-js-menu.mdl-js-ripple-effect(for='rows-per-page')
+              li.mdl-menu__item 10
+              li.mdl-menu__item 25
+              li.mdl-menu__item 50
+              li.mdl-menu__item 100
+            //- ul
+          //- .rows-per-page
+
+          span.showing 1-10 of 10
+
+          span.paginate
+            a.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect(href='')
+              i.material-icons keyboard_arrow_left
+            //- button
+            a.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect(href='')
+              i.material-icons keyboard_arrow_right
+            //- button
+          //- paginate
+        //- .table-footer-controls
+      //- frame
+    //- mdl-card
+  //- section
+
+block scripts
+  script.
+    $(document).ready(function() {
+
+      $("[data-toggle='datepicker']").datepicker();
+      $('body').on('blur', '[data-toggle="datepicker"]', function() {
+        if (this.value != '') {
+          $(this).parent().addClass('is-dirty');
+        }
+      });
+
+    });

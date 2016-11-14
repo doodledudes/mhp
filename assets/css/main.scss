@@ -16,12 +16,12 @@ body {
 section {
   &.ribbon {
     // background: #cd3d51;
-    background: #006B9A;
+    background: #673ab7;
     height: 30vh;
   }
   &.content {
     & {
-      max-width: 960px;
+      max-width: 1117px;
       margin: auto;
       padding: 16px;
       margin-top: -26vh;
@@ -33,6 +33,9 @@ section {
       font-size: 22px;
       line-height: 22px;
     }
+    > .mdl-card {
+      width: 100%;
+    }
     .frame {
       width: 100%;
       min-height: auto;
@@ -41,7 +44,7 @@ section {
         border: 0;
         tfoot {
           .total {
-            color: #607D8B;
+            color: #673ab7;
             font-weight: normal;
             vertical-align: middle;
             font-size: 18px;
@@ -104,7 +107,7 @@ footer {
 // Drawer
 .mdl-layout__drawer {
   .login-info {
-    padding: 16px;
+    padding: 10px 15px;
     border-top: 1px solid #eee;
     .name {
       margin-left: 5px;
@@ -124,13 +127,28 @@ footer {
     & {
       padding-top: 0;
     }
+    .mhp-drawer--search-patient {
+
+    }
     .mdl-navigation__link {
+      & {
+        padding: 10px 37px 10px 25px;
+      }
       &.active {
         background: #e0e0e0;
         color: #333;
       }
       &:hover {
         color: #333;
+      }
+    }
+    .mdl-badge {
+      white-space: normal;
+      margin-right: 0;
+      &:after {
+        top: 10px;
+        right: 15px;
+        background-color: #f0485a;
       }
     }
   }
@@ -141,6 +159,31 @@ footer {
   }
   img {
     max-width: 100%;
+  }
+}
+
+.mhp-profile-column {
+  nav {
+    p {
+      a {
+        color: #929292;
+        text-decoration: none;
+        &:hover {
+          color: lighten(#929292, 10%);
+        }
+      }
+      &.active {
+        a {
+          color: #448aff;
+        }
+      }
+    }
+  }
+}
+// Patient Profile Column
+@media screen and (min-width: 768px) {
+  .mhp-profile-column {
+    border-right: 1px solid #ddd;
   }
 }
 
@@ -194,15 +237,73 @@ section {
   }
 }
 
+// Images
+.mhp-img {
+  & {
+
+  }
+  &.mhp--fill-img {
+    max-width: 100%;
+  }
+  &.mhp--grayscale-img {
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+  }
+}
+
+// Image Card
+.mdl-card {
+  &.mhp-card--img {
+    & {
+      width: 256px;
+      height: 256px;
+      max-width: 100%;
+    }
+    > .mdl-card__actions {
+      height: 52px;
+      padding: 16px;
+      background: rgba(0, 0, 0, 0.4);
+    }
+    .mhp-card--img__filename {
+      color: #fff;
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+}
+
+// Change Password
+.change-password {
+  #formCp {
+    margin-top: 15px;
+    // padding: 15px;
+    // border: 1px solid #eee;
+  }
+}
+
+// Collapse
+.clps {
+  & {
+    display: none;
+  }
+}
+
+// MDL Select
+.getmdl-select {
+  .mdl-menu__container {
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,.14),0 3px 1px -2px rgba(0,0,0,.2),0 1px 5px 0 rgba(0,0,0,.12);
+  }
+}
+
 
 // MDL
 .mdl-button--accent.mdl-button--accent.mdl-button--raised,
 .mdl-button--accent.mdl-button--accent.mdl-button--fab {
-  color: #fff;
-  background-color: #607D8B;
+  // color: #fff;
+  // background-color: #607D8B;
 }
 .mdl-tabs.is-upgraded .mdl-tabs__tab.is-active:after {
-  background-color: #006B9A;
+  // background-color: #006B9A;
 }
 
 

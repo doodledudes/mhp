@@ -1,0 +1,155 @@
+extends ./layout/layout.pug
+
+block content
+
+  section.ribbon
+  section.content
+    //- h1 Patient
+    //-   br
+    //-   small Dashboard
+    //- //- h1
+    .mdl-card.mdl-shadow--2dp
+      .frame
+        .mdl-grid
+          .mdl-cell.mdl-cell--4-col.mdl-cell--12-col-tablet.mdl-cell--12-col-phone
+            .mdl-grid.mhp-profile-column
+              .mdl-cell.mdl-cell--12-col.mdl-cell--4-col-tablet.mdl-cell--6-col-phone
+                .mhp-card--img.mdl-card(style='background: url("//cms.interaksyon.com/entertainment/assets/media/2013/02/Joey-Pepe-Smith-screemshot.jpg") center / cover;')
+                  .mdl-card__title.mdl-card--expand
+                  .mdl-card__actions
+                    span.mhp-card--img__filename Juan Dela Cruz
+                  //- mdl-card__actions
+                  .mdl-card__menu
+                    button.mdl-button.mdl-button--icon.mdl-js-button.mdl-js-ripple-effect
+                      i.material-icons camera_alt
+                    //- button
+                  //- mdl-card__menu
+                //- mhp-card--img
+                br
+                p
+                  span.mdl-badge(data-badge='7') New Messages
+                //- p
+                p
+                  span.mdl-badge(data-badge='8') Unconfirmed Messages
+                //- p
+                hr.mdl-cell--hide-tablet
+              //- mdl-cell
+              .mdl-cell.mdl-cell--12-col.mdl-cell--4-col-tablet.mdl-cell--6-col-phone
+                nav
+                  p.active
+                    a(href='profile.html') Dashboard
+                  //- p
+                  p
+                    a(href='details.html') Profile
+                  //- p
+                  p
+                    a(href='') Reccomendations
+                  //- p
+                  p
+                    a(href='') BP Measurements
+                  //- p
+                  p
+                    a(href='') Patient Review Log
+                  //- p
+                //- nav
+              //- mdl-cell
+            //- mdl-grid
+          //- mdl-cell.mdl-cell--6-col
+          .mdl-cell.mdl-cell--8-col
+            .mdl-tabs.mdl-js-tabs.mdl-js-ripple-effect
+              .mdl-tabs__tab-bar
+                a.mdl-tabs__tab.is-active(href='#tabBpMeasurement') Patient BP Measurement
+                a.mdl-tabs__tab(href='#tabReviewLog') Patient Review Log Chart
+                .mdl-layout-spacer
+              //- mdl-tabs__tab-bar
+              #tabBpMeasurement.mdl-tabs__panel.is-active
+                h4 Lorem ipsum dolor sit amet
+                p Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+                canvas#graphBpMeasurement
+              #tabReviewLog.mdl-tabs__panel
+                h4 Lorem ipsum dolor sit amet
+                p Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi.
+                canvas#graphReviewLog
+            //- mdl-tabs
+          //- mdl-cell.mdl-cell--6-col
+        //- mdl-grid
+      //- .frame
+    //- mdl-card
+  //- section
+
+block scripts
+  script.
+    $(document).ready(function() {
+
+      $("[data-toggle='datepicker']").datepicker();
+      $('body').on('blur', '[data-toggle="datepicker"]', function() {
+        if (this.value != '') {
+          $(this).parent().addClass('is-dirty');
+        }
+      });
+
+      var bpMeasurementCtx = document.getElementById('graphBpMeasurement').getContext('2d');
+      var reviewLogCtx = document.getElementById('graphReviewLog').getContext('2d');
+      var bpMeasurementData = {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [
+          {
+            label: "My First dataset",
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+              'rgba(255, 206, 86, 0.2)',
+              'rgba(75, 192, 192, 0.2)',
+              'rgba(153, 102, 255, 0.2)',
+              'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+              'rgba(255,99,132,1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)',
+              'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1,
+            data: [65, 59, 80, 81, 56, 55, 40],
+          }
+        ]
+      };
+      var reviewLogData = {
+        labels: ["January", "February", "March", "April", "May", "June", "July"],
+        datasets: [
+          {
+            label: "My First dataset",
+            fill: false,
+            lineTension: 0.1,
+            backgroundColor: "rgba(75,192,192,0.4)",
+            borderColor: "rgba(75,192,192,1)",
+            borderCapStyle: 'butt',
+            borderDash: [],
+            borderDashOffset: 0.0,
+            borderJoinStyle: 'miter',
+            pointBorderColor: "rgba(75,192,192,1)",
+            pointBackgroundColor: "#fff",
+            pointBorderWidth: 1,
+            pointHoverRadius: 5,
+            pointHoverBackgroundColor: "rgba(75,192,192,1)",
+            pointHoverBorderColor: "rgba(220,220,220,1)",
+            pointHoverBorderWidth: 2,
+            pointRadius: 1,
+            pointHitRadius: 10,
+            data: [65, 59, 80, 81, 56, 55, 40],
+            spanGaps: false,
+          }
+        ]
+      };
+      var bpMeasurement = new Chart(bpMeasurementCtx, {
+        type: 'bar',
+        data: bpMeasurementData
+      });
+      var reviewLog = new Chart(reviewLogCtx, {
+        type: 'line',
+        data: reviewLogData
+      });
+
+    });
